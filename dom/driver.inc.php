@@ -86,7 +86,7 @@ function innerHTML($node) {
     return $innerHTML;
 }
 
-function assert_array_equals($array1, $array2) {
+function assert_array_equals($array1, $array2, $msg = "") {
     if (count($array1) !== count($array2)) {
         throw new Error("Assertion failed: count(\$array1) (" . count($array1) . ") !== count(\$array2) (" . count($array2) . ")");
     }

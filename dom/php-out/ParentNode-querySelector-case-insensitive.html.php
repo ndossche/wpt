@@ -1,0 +1,15 @@
+<?php define('undefined', 'undefined');require __DIR__.'/../driver.inc.php';
+$content = file_get_contents(__DIR__."/../nodes/ParentNode-querySelector-case-insensitive.html");
+$document = Dom\HTMLDocument::createFromString($content, LIBXML_NOERROR);
+;
+"use strict";
+$input = $document->getElementById("testInput");
+;
+test(function() {global $document; global $input;
+  assert_equals($document->querySelector("input[name*=user i]"), $input);
+}, "querySelector");
+;
+test(function() {global $document; global $input;
+  assert_array_equals($document->querySelectorAll("input[name*=user i]"), [$input]);
+}, "querySelectorAll");
+;

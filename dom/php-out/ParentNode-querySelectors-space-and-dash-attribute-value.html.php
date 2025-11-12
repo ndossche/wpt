@@ -1,0 +1,15 @@
+<?php define('undefined', 'undefined');require __DIR__.'/../driver.inc.php';
+$content = file_get_contents(__DIR__."/../nodes/ParentNode-querySelectors-space-and-dash-attribute-value.html");
+$document = Dom\HTMLDocument::createFromString($content);
+;
+"use strict";
+$el = $document->getElementById("testme");
+;
+test(function() { global $document; global $el;
+  assert_equals($document->querySelector("a[title='test with - dash and space']"), $el);
+}, "querySelector");
+;
+test(function() { global $document; global $el;
+  assert_equals($document->querySelector("a[title='test with - dash and space']"), $el);
+}, "querySelectorAll");
+;
